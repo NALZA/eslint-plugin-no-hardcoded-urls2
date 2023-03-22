@@ -1,7 +1,14 @@
 {
   "name": "eslint-plugin-no-hardcoded-urls",
-  "packageManager": "yarn@3.5.0",
   "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "npm-run-all \"lint:*\"",
+    "lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
+    "lint:js": "eslint .",
+    "test": "mocha tests --recursive",
+    "update:eslint-docs": "eslint-doc-generator"
+  },
   "keywords": [
     "eslint",
     "eslint-plugin",
@@ -9,5 +16,10 @@
   ],
   "peerDependencies": {
     "eslint": "^8.36.0"
-  }
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "mocha": "^10.2.0"
+  },
+  "packageManager": "yarn@3.5.0"
 }
