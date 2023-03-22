@@ -1,7 +1,13 @@
 {
   "name": "eslint-plugin-no-hardcoded-urls",
   "packageManager": "yarn@3.5.0",
-  "devDependencies": {
+  "main": "index.js",
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "hardcoded-urls"
+  ],
+  "peerDependencies": {
     "eslint": "^8.36.0"
   }
 }
