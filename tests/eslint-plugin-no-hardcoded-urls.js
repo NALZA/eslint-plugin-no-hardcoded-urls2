@@ -17,7 +17,15 @@ const rule = require("../eslint-plugin-no-hardcoded-urls"),
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+  parserOptions: {
+    ecmaVersion: "latest",
+  },
+  env: {
+    es6: true,
+  },
+});
+const baseUrl = "https://example.com";
 ruleTester.run("no-hard-coded-urls", rule, {
   valid: [
     {
@@ -28,13 +36,20 @@ ruleTester.run("no-hard-coded-urls", rule, {
     },
     {
       code: "const url = `${baseUrl}/api/data`",
-      env: { baseUrl: "https://example.com" },
     },
     {
       code: "const url = `https://example.com/${process.env.NODE_ENV}`;",
     },
   ],
   invalid: [
+    {
+      code: "const url = 'http://example.com/api/data'",
+      errors: [
+        {
+          message: "Hard coded URLs are not allowed",
+        },
+      ],
+    },
     {
       code: "const url = 'https://example.com/api/data'",
       errors: [

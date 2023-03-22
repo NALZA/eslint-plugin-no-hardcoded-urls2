@@ -11,7 +11,10 @@ module.exports = {
     return {
       Literal(node) {
         const { value } = node;
-        if (typeof value === "string" && (value.startsWith("http") || value.startsWith("https"))) {
+        if (
+          typeof value === "string" &&
+          (value.startsWith("http") || value.startsWith("https"))
+        ) {
           if (!value.includes("${")) {
             context.report({
               node,
