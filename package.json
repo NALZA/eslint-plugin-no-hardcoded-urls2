@@ -1,0 +1,4 @@
+{
+  "name": "eslint-plugin-no-hardcoded-urls",
+  "packageManager": "yarn@3.5.0"
+}
